@@ -1,0 +1,4 @@
+apiVersion: 3.2.4
+appVersion: v1
+name: helm-elected-api
+version: 0.1.0

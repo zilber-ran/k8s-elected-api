@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: elected-api
+  name: app-elected-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: elected-api
+  template:
+    metadata:
+      labels:
+        app: elected-api
+    spec:
+      automountServiceAccountToken: true
+      containers:
+      - env:
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        image: localhost:5001/elected-api:latest
+        imagePullPolicy: Always
+        name: app
+      serviceAccount: app-elected-api
+      serviceAccountName: app-elected-api
