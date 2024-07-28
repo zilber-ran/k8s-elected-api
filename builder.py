@@ -1,4 +1,4 @@
-#!/home/ranz/.pyenv/shims/python
+#!/usr/bin/env python
 
 ################################################################
 # A build pipeline to automate python k8s project creation and deployment
